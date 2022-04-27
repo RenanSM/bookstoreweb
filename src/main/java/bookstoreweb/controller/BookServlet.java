@@ -51,6 +51,18 @@ public class BookServlet extends HttpServlet {
                     insertBookAction(request, response);
                     break;
                 
+                case "edit":
+                    showEditBookForm(request, response);
+                    break;
+                
+                case "delete":
+                    deleteBookAction(request, response);
+                    break;
+                    
+                case "update":
+                    updateBookAction(request, response);
+                    break;
+                
                 case "/list":    
                 default:
                     listBook(request, response);
