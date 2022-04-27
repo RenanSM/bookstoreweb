@@ -74,7 +74,7 @@ public class BookServlet extends HttpServlet {
           }
     }
     
-    
+    // <editor-fold defaultstate="collapsed" desc="Metodos da Bookstore. Click on the + sign on the left to edit the code.">
         
     private void listBook(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
@@ -147,7 +147,7 @@ public class BookServlet extends HttpServlet {
         response.sendRedirect("list");
     
     }
-    
+    // </editor-fold>
     
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

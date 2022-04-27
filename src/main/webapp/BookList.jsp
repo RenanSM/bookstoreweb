@@ -3,36 +3,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Aplicação BookStoreWeb</title>
-    </head>
-    <body>
-        <h1>Aplicação BookStoreWeb</h1>
-        <p><a href="<%=request.getContextPath()%>/new">Adicionar novo Livro</a></p>
-        <p><a href="<%=request.getContextPath()%>/list">Lista todos Livros</a></p>
-
-        <table border="1" cellpadding="5">
-            <caption><h2>List of Books</h2></caption>
-            <tr>
-                <th>ID</th>
-                <th>Titulo</th>
-                <th>Autor</th>
-                <th>Preco</th>
-                <th>Ações</th>
-            </tr>
-
-            <c:forEach var="book" items="${listaBook}">
+        <jsp:include page="Contents/headerTags.jsp"></jsp:include>
+            <title>Aplicação BookStoreWeb</title>
+        </head>
+        <body>
+            <div class="Container">
+            <jsp:include page="Contents/cabecalho.jsp"></jsp:include>
+            <div class="table-responsive">
+            <table class="table table-hover">
+                <caption><h2>List of Books</h2></caption>
                 <tr>
-                    <td><c:out value="${book.id}" /></td>
-                    <td><c:out value="${book.titulo}" /></td>
-                    <td><c:out value="${book.autor}" /></td>
-                    <td><c:out value="${book.preco}" /></td>
-                    <td><a href="<%=request.getContextPath()%>/edit?id=<c:out value='${book.id}' />">Edit</a>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="<%=request.getContextPath()%>/delete?id=<c:out value='${book.id}' />">Delete</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Autor</th>
+                    <th>Preco</th>
+                    <th>Ações</th>
                 </tr>
-            </c:forEach>
-        </table>
+
+                <c:forEach var="book" items="${listaBook}">
+                    <tr>
+                        <td><c:out value="${book.id}" /></td>
+                        <td><c:out value="${book.titulo}" /></td>
+                        <td><c:out value="${book.autor}" /></td>
+                        <td><c:out value="${book.preco}" /></td>
+                        <td><a href="<%=request.getContextPath()%>/edit?id=<c:out value='${book.id}' />">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="<%=request.getContextPath()%>/delete?id=<c:out value='${book.id}' />">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+            </div>
+            <jsp:include page="Contents/rodape.jsp"></jsp:include>
+        </div>
     </body>
 </html>
