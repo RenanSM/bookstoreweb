@@ -51,15 +51,15 @@ public class BookServlet extends HttpServlet {
                     insertBookAction(request, response);
                     break;
                     
-                case "edit":
+                case "/edit":
                     showEditBookForm(request, response);
                     break;
                 
-                case "delete":
+                case "/delete":
                     deleteBookAction(request, response);
                     break;
                     
-                case "update":
+                case "/update":
                     updateBookAction(request, response);
                     break;
                     
