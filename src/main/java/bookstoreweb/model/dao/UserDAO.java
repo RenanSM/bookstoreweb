@@ -18,8 +18,7 @@ import java.sql.SQLException;
  */
 public class UserDAO {
 
-    public User checkLogin(String email, String password) throws SQLException,
-            ClassNotFoundException {
+    public User checkLogin(String email, String password) throws SQLException{
         String jdbcURL = "jdbc:mysql://172.16.0.30:3306/rsm_bookstore";
         String dbUser = "admin";
         String dbPassword = "admin";
