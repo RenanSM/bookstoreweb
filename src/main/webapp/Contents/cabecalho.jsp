@@ -10,10 +10,10 @@
 
 
 <p>
-    <a href="<%=request.getContextPath()%>/new" class="btn btn-primary">
+    <a href="<%=request.getContextPath()%>/bstore/new" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span>Adicionar novo Livro</a>
 
-        <a href="<%=request.getContextPath()%>/list" class="btn btn-default">
+        <a href="<%=request.getContextPath()%>/bstore/list" class="btn btn-default">
         <span class="glyphicon glyphicon-th-list"></span>
         Lista todos Livros</a>
 </p>

@@ -38,7 +38,7 @@ public class BookServlet extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         
-        String action = request.getServletPath();
+        String action = request.getPathInfo();
         Logger.getLogger(BookServlet.class.getName()).log(Level.INFO, "Path solicitado: (0)", action);
             
         try {
@@ -85,14 +85,14 @@ public class BookServlet extends HttpServlet {
         
         request.setAttribute("listaBook", listaBooks);
     
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/BookList.jsp");
         dispatcher.forward(request, response);
     }
     
     private void showNewBookForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
         dispatcher.forward(request, response);    
     }
     
@@ -115,7 +115,7 @@ public class BookServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         BookDAO bookDAO = new BookDAO();
         Book atualizaBook = bookDAO.getResultById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("BookForm.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/BookForm.jsp");
         request.setAttribute("book", atualizaBook);
         dispatcher.forward(request, response);
             

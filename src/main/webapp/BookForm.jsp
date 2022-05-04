@@ -7,9 +7,9 @@
     </head>
     <body>
         <h1>Aplicação BookStoreWeb</h1>
-        <p><a href="<%=request.getContextPath()%>/new">Adicionar novo 
+        <p><a href="<%=request.getContextPath()%>/bstore/new">Adicionar novo 
                 Livro</a></p>
-        <p><a href="<%=request.getContextPath()%>/list">Lista todos 
+        <p><a href="<%=request.getContextPath()%>/bstore/list">Lista todos 
                 Livros</a></p>
 
         <div align="left">
