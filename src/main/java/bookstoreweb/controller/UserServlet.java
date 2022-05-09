@@ -5,10 +5,15 @@
  */
 package bookstoreweb.controller;
 
+import bookstoreweb.model.bean.User;
+import bookstoreweb.model.dao.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author devsys-b
  */
-@WebServlet(name = "UserServlet", urlPatterns = {"/bsuser"})
 public class UserServlet extends HttpServlet {
 
     /**
@@ -31,21 +35,133 @@ public class UserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet UserServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet UserServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        String action = request.getPathInfo();
+        Logger.getLogger(UserServlet.class.getName()).log(Level.INFO, "Path solicitado: (0)", action);
+            
+        try {
+            switch (action) {
+                case "/new":
+                    showNewUserForm(request, response);
+                    break;
+                
+                case "/insert":
+                    insertUserAction(request, response);
+                    break;
+                    
+                case "/edit":
+                    showEditUserForm(request, response);
+                    break;
+                
+                case "/delete":
+                    deleteUserAction(request, response);
+                    break;
+                    
+                case "/update":
+                    updateUserAction(request, response);
+                    break;
+                    
+                
+                case "edit":
+                    showEditUserForm(request, response);
+                    break;
+                
+                case "delete":
+                    deleteUserAction(request, response);
+                    break;
+                    
+                case "update":
+                    updateUserAction(request, response);
+                    break;
+                
+                case "/list":    
+                default:
+                    listUser(request, response);
+                    break;
         }
+        } catch (SQLException ex){
+            throw new ServletException(ex);
+          }
     }
-
+    
+    // <editor-fold defaultstate="collapsed" desc="Metodos da Userstore. Click on the + sign on the left to edit the code.">
+        
+    private void listUser(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        UserDAO userDAO = new UserDAO();
+        List<User>  listaUsers = userDAO.getResults();
+        
+        Logger.getLogger(UserDAO.class.getName()).log(Level.INFO, "Total de registros: {0}", listaUsers.size());
+        
+        request.setAttribute("listaUser", listaUsers);
+    
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/UserList.jsp");
+        dispatcher.forward(request, response);
+    }
+    
+    private void showNewUserForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException {
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/UserForm.jsp");
+        dispatcher.forward(request, response);    
+    }
+    
+    private void insertUserAction(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException{
+        
+        UserDAO userDAO = new UserDAO();
+        User novoUser = new User();
+        novoUser.setEmail( request.getParameter("formEmail"));
+        novoUser.setPassword( request.getParameter("formPassword"));
+        novoUser.setFullname( request.getParameter("formFullname"));
+        
+        userDAO.create(novoUser);
+        response.sendRedirect("list");
+    }
+    
+    private void showEditUserForm(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException, ServletException{
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        UserDAO userDAO = new UserDAO();
+        User atualizaUser = userDAO.getResultById(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/UserForm.jsp");
+        request.setAttribute("user", atualizaUser);
+        dispatcher.forward(request, response);
+            
+    }
+    
+    private void updateUserAction(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException{
+        
+        UserDAO userDAO = new UserDAO();
+        User userAtualizado = new User();
+        
+        userAtualizado.setId( Integer.parseInt(request.getParameter("formId")));
+        userAtualizado.setEmail( request.getParameter("formEmail"));
+        userAtualizado.setPassword(request.getParameter("formPassword"));
+        userAtualizado.setFullname(request.getParameter("formFullname"));
+        
+        userDAO.update(userAtualizado);
+        response.sendRedirect("list");  
+        
+    }
+    
+    private void deleteUserAction(HttpServletRequest request, HttpServletResponse response)
+            throws SQLException, IOException{
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        UserDAO userDAO = new UserDAO();
+        userDAO.delete(id);
+        response.sendRedirect("list");
+    
+    }
+    // </editor-fold>
+    
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -86,3 +202,4 @@ public class UserServlet extends HttpServlet {
     }// </editor-fold>
 
 }
+
