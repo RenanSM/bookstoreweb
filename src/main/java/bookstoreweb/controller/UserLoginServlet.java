@@ -42,7 +42,7 @@ public class UserLoginServlet extends HttpServlet {
             if(user != null) {
                     HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "/bstore/list";
+                destPage = "/users/list";
                 Logger.getLogger(UserDAO.class.getName()).log(Level.INFO, "Usuario Logado: (0)", user.getEmail() + " | " + user.getFullname());
             } else {
                 String msgAux = "Email ou Password Inválido!!!";
