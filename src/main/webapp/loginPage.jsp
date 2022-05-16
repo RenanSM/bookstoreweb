@@ -7,7 +7,7 @@
     </head>
     <body>
         <div style="text-align: center;">
-            <h1 style="color: brown; font-family: sans-serif">Admin Login</h1>
+            <h1 style="color: red; font-family: sans-serif">Admin Login</h1>
             <form action="login" method="post" style="color: brown; font-family: sans-serif">
                 <label for="email">Email:</label>
                 <input name="email" size="30" />
