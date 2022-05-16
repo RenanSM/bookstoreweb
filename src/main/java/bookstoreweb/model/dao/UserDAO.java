@@ -182,24 +182,21 @@ public class UserDAO {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         User b = null;
-
+        
         try {
+            // Prepara a String de SLEECT e executa a query.
             stmt = conn.prepareStatement(SELECT);
             rs = stmt.executeQuery();
 
-            if (rs.next()) {
+            
+            while (rs.next()) {
                 b = new User();
                 b.setEmail(rs.getString("email"));
                 b.setPassword(rs.getString("password"));
             }
-
-        } catch (SQLException sQLException) {
-            Logger.getLogger(BookDAO.class.getName()).log(Level.SEVERE, null,
-                    sQLException);
-        } finally {
-            MySQLConnection.closeConnection(conn, stmt, rs);
+        } catch (SQLException ex){
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         return b;
     }
 

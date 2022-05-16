@@ -4,11 +4,14 @@
 <html>
     <head>
 
+            <jsp:include page="./contents/headerTags.jsp"/>
             <title>Aplicação BookStoreWeb</title>
         </head>
         <body>
+            <div class="Container">
+            <jsp:include page="./contents/cabecalhouser.jsp"/>
 
-
+       
         <div class = "container mt-3">
             <table class = "table table-striped">
 
@@ -40,7 +43,7 @@
                 </c:forEach>
             </table>
         </div>
-
-
+            </div>>
+            
 
     </body>
