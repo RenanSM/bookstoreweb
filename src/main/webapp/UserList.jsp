@@ -3,42 +3,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="Contents/headerTags.jsp"></jsp:include>
+
             <title>Aplicação BookStoreWeb</title>
         </head>
         <body>
-            <div class="Container">
-            <jsp:include page="Contents/cabecalho.jsp"></jsp:include>
-            <div class="table-responsive">
-            <table class="table table-hover">
+
+
+        <div class = "container mt-3">
+            <table class = "table table-striped">
+
                 <caption><h2>List of Users</h2></caption>
                 <tr>
                     <th>ID</th>
                     <th>Email</th>
+                    <th>FullName</th>
                     <th>Password</th>
-                    <th>Fullname</th>
                     <th>Ações</th>
                 </tr>
 
-                <c:forEach var="user" items="${listaUser}">
+                <c:forEach var="us" items="${listaUsers}">
                     <tr>
                         <td><c:out value="${user.id}" /></td>
                         <td><c:out value="${user.email}" /></td>
-                        <td><c:out value="${user.password}" /></td>
                         <td><c:out value="${user.fullname}" /></td>
-                        <td><a href="<%=request.getContextPath()%>/users/edit?id=<c:out value='${user.id}' />">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </a>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <a href="<%=request.getContextPath()%>/users/delete?id=<c:out value='${user.id}' />">
-                                <span class="glyphicon glyphicon-trash"></span>
+                        <td><c:out value="${user.password}" /></td>
+                        
+                        <td>
+                            <a href="<%=request.getContextPath()%>/edit?id=<c:out value='${user.id}'/>">
+                                Edit
+                            </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="<%=request.getContextPath()%>/delete?id=<c:out value='${user.id}'/>">
+                                Delete
                             </a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
-            </div>
-            <jsp:include page="Contents/rodape.jsp"></jsp:include>
         </div>
+
+
+
     </body>
-</html>

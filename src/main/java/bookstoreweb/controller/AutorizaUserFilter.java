@@ -47,13 +47,13 @@ public class AutorizaUserFilter implements Filter{
             //Se tudo tiver ok o usuário segue a requisição com a autorização do session
             User userLogado = (User) session.getAttribute("user");
             
-            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Usuário autenticado: {0}", userLogado.getEmail());
+            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Usuario autenticado: {0}", userLogado.getEmail());
             
-            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Carrega próximo filtro ou servlet - chain.doFilter()");
+            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Carrega proximo filtro ou servlet - chain.doFilter()");
             chain.doFilter(request, response);
         }else {
             //puts....usuario não tá autenticado :/. Pra página de Login
-            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Usuário não autenticado: ");
+            Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "Usuario nao autenticado: ");
             
             RequestDispatcher dispatcher = request.getRequestDispatcher("/loginPage.jsp");
             dispatcher.forward(request, response);

@@ -5,66 +5,64 @@
     <head>
         <title>Aplicação Books Store</title>
     </head>
-    <body>
-        <h1>Aplicação BookStoreWeb</h1>
-        <p><a href="<%=request.getContextPath()%>/users/new">Adicionar novo 
-                Livro</a></p>
-        <p><a href="<%=request.getContextPath()%>/users/list">Lista todos 
-                Livros</a></p>
+<body>
 
-        <div align="left">
-            <c:if test="${user != null}">
-                <form action="update" method="post">
-                </c:if>
-                <c:if test="${user == null}">
-                    <form action="insert" method="post">
+            <br>
+            <jsp:include page="Contents/cabecalhouser.jsp"/>
+
+            <jsp:include page="Contents/headerTags.jsp"/>
+
+            <div align="left">
+                <c:if test="${user != null}">
+                    <form action="update" method="post">
                     </c:if>
-                    <table border="1" cellpadding="5">
-                        <caption>
-                            <h2>
+                    <c:if test="${user == null}">
+                        <form action="insert" method="post">
+                        </c:if>
+                        <div class = "container mt-3">
+                            <table class = "table table-striped">
+                                <caption>
+                                    <h2 style = text-decoration: none;>
+                                        <c:if test="${user != null}">
+                                            Editar Usuário
+                                        </c:if>
+                                        <c:if test="${user == null}">
+                                            Adicionar novo Usuário
+                                        </c:if>
+                                    </h2>
+                                </caption>
                                 <c:if test="${user != null}">
-                                    Editar Livro
+                                    <input type="hidden" name="formId" value="<c:out value='${user.id}' />" />
                                 </c:if>
-                                <c:if test="${user == null}">
-                                    Adicionar novo Livro
-                                </c:if>
-                            </h2>
-                        </caption>
-                        <c:if test="${user != null}">
-                            <input type="hidden" name="formId" value="<c:out 
-                                       value='${user.id}' />" />
-                        </c:if> 
-                        <tr>
-                            <th>Titulo: </th>
-                            <td>
-                                <input type="text" name="formTitulo" size="45"
-                                       value="<c:out value='${user.titulo}' />"
-                                       />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Autor: </th>
-                            <td>
-                                <input type="text" name="formAutor" size="45"
-                                       value="<c:out value='${user.autor}' />"
-                                       />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>Preco: </th>
-                            <td>
-                                <input type="text" name="formPreco" size="5"
-                                       value="<c:out value='${user.preco}' />"
-                                       />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center">
-                                <input type="submit" value="Enviar" />
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-        </div> 
+                                <tr>
+                                    <th>Email: </th>
+                                    <td>
+                                        <input type="text" name="formEmail" size="45" value="<c:out value='${user.email}' />"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Password: </th>
+                                    <td>
+                                        <input type="text" name="formPassword" size="5" value="<c:out value='${user.fullname}' />"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>FullName: </th>
+                                    <td>
+                                        <input type="text" name="formFullname" size="45" value="<c:out value='${user.password}' />"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <input type="submit" value="Enviar" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+            </div>
+
+            <jsp:include page="Contents/rodape.jsp"/> 
+        </div>
     </body>
 </html>

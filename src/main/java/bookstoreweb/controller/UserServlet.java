@@ -63,19 +63,6 @@ public class UserServlet extends HttpServlet {
                     updateUserAction(request, response);
                     break;
                     
-                
-                case "edit":
-                    showEditUserForm(request, response);
-                    break;
-                
-                case "delete":
-                    deleteUserAction(request, response);
-                    break;
-                    
-                case "update":
-                    updateUserAction(request, response);
-                    break;
-                
                 case "/list":    
                 default:
                     listUser(request, response);
@@ -172,7 +159,7 @@ public class UserServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
         processRequest(request, response);
     }

@@ -179,37 +179,28 @@ public class UserDAO {
     
     public User checkLogin(String email, String password) {
         Connection conn = MySQLConnection.getConnection();
-        PreparedStatement  stmt = null;
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         User b = null;
-        
-        
+
         try {
             stmt = conn.prepareStatement(SELECT);
-            stmt.setString(1, email);
-            stmt.setString(1, password);
             rs = stmt.executeQuery();
-            
-            
-            if (rs.next()){
+
+            if (rs.next()) {
                 b = new User();
-                b.setId(rs.getInt("id"));
                 b.setEmail(rs.getString("email"));
                 b.setPassword(rs.getString("password"));
-                b.setFullname(rs.getString("fullname"));
             }
+
         } catch (SQLException sQLException) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, 
+            Logger.getLogger(BookDAO.class.getName()).log(Level.SEVERE, null,
                     sQLException);
         } finally {
-        
             MySQLConnection.closeConnection(conn, stmt, rs);
         }
-        
+
         return b;
-    
-    
-    
     }
 
     

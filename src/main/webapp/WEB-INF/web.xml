@@ -3,6 +3,7 @@
     <servlet>
         <servlet-name>BookServlet</servlet-name>
         <servlet-class>bookstoreweb.controller.BookServlet</servlet-class>
+        
     </servlet>
     <servlet-mapping>
         <servlet-name>BookServlet</servlet-name>

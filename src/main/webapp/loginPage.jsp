@@ -6,9 +6,9 @@
         <title>Bookstore Website</title>
     </head>
     <body>
-        <div style="text-align: center">
-            <h1>Admin Login</h1>
-            <form action="login" method="post">
+        <div style="text-align: center;">
+            <h1 style="color: brown; font-family: sans-serif">Admin Login</h1>
+            <form action="login" method="post" style="color: brown; font-family: sans-serif">
                 <label for="email">Email:</label>
                 <input name="email" size="30" />
                 <br><br>
@@ -22,6 +22,8 @@
                 <br>${message}<br><br> 
                 <button type="submit">Login</button>
             </form>
+                
         </div>
+              <!---------<p a="/bsuser/new" style="color: blue">Não se registrou ainda? Clique aqui.</p>-->
     </body>
 </html>

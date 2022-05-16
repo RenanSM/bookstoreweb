@@ -42,7 +42,7 @@ public class UserLoginServlet extends HttpServlet {
             if(user != null) {
                     HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                destPage = "/users/list";
+                destPage = "/bstore/list";
                 Logger.getLogger(UserDAO.class.getName()).log(Level.INFO, "Usuario Logado: (0)", user.getEmail() + " | " + user.getFullname());
             } else {
                 String msgAux = "Email ou Password Inválido!!!";
@@ -61,22 +61,5 @@ public class UserLoginServlet extends HttpServlet {
     }
 
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
