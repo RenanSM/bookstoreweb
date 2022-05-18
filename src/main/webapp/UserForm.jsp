@@ -43,13 +43,13 @@
                                 <tr>
                                     <th>Password: </th>
                                     <td>
-                                        <input type="text" name="formPassword" size="5" value="<c:out value='${book.fullname}' />"/>
+                                        <input type="text" name="formPassword" size="5" value="<c:out value='${book.password}' />"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>FullName: </th>
                                     <td>
-                                        <input type="text" name="formFullname" size="45" value="<c:out value='${book.password}' />"/>
+                                        <input type="text" name="formFullname" size="45" value="<c:out value='${book.fullname}' />"/>
                                     </td>
                                 </tr>
                                 <tr>

@@ -10,6 +10,6 @@
 
 
 
-        <a href="http://localhost:8080/bookstore/logout">Logout</a>
+        <a href="http://localhost:8080/bookstoreweb/logout">Logout</a>
 
 <!-- Fim cabecalho-->

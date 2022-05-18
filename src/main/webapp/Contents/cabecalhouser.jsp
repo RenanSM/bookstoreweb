@@ -5,11 +5,11 @@
 --%>
 
 <!-- Inicio cabecalho-->
-<div style="text-align: center;" class="jumbotron"><h1 style="color: brown">Admin Page</h1><a style="" href="http://localhost:8080/bookstore/logout">Logout</a></div>
+<div style="text-align: center;" class="jumbotron"><h1 style="color: brown">Admin Page</h1><a style="" href="http://localhost:8080/bookstoreweb/logout">Logout</a></div>
 
 
 
-<p>
+<p style="padding: 5px;">
     <a href="<%=request.getContextPath()%>/bsuser/new" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Adicionar novo usuário</a>
 
