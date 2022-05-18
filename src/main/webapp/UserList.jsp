@@ -4,12 +4,12 @@
 <html>
     <head>
 
-            <jsp:include page="./contents/headerTags.jsp"/>
+            <jsp:include page="./Contents/headerTags.jsp"/>
             <title>Aplicação BookStoreWeb</title>
         </head>
         <body>
             <div class="Container">
-            <jsp:include page="./contents/cabecalhouser.jsp"/>
+            <jsp:include page="./Contents/cabecalhouser.jsp"/>
 
        
         <div class = "container mt-3">
@@ -24,7 +24,7 @@
                     <th>Ações</th>
                 </tr>
 
-                <c:forEach var="us" items="${listaUsers}">
+                <c:forEach var="user" items="${listaUsers}">
                     <tr>
                         <td><c:out value="${user.id}" /></td>
                         <td><c:out value="${user.email}" /></td>

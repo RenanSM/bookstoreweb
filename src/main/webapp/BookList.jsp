@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="Contents/headerTags.jsp"></jsp:include>
+        <jsp:include page="./Contents/headerTags.jsp"></jsp:include>
             <title>Aplicação BookStoreWeb</title>
         </head>
         <body>
             <div class="Container">
-            <jsp:include page="Contents/cabecalho.jsp"></jsp:include>
+            <jsp:include page="./Contents/cabecalho.jsp"></jsp:include>
             <div class="table-responsive">
             <table class="table table-hover">
                 <caption><h2>List of Books</h2></caption>

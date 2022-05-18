@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author devsys-b
  */
-    @WebFilter(filterName = "AutorizaUserFilter", urlPatterns = {"/bstore/*"})
+   @WebFilter(filterName = "AutorizaUserFilter", urlPatterns = {"/bstore/*"})
 public class AutorizaUserFilter implements Filter{
 
     @Override

@@ -8,9 +8,9 @@
 <body>
 
             <br>
-            <jsp:include page="Contents/cabecalhouser.jsp"/>
+            <jsp:include page="./Contents/cabecalhouser.jsp"/>
 
-            <jsp:include page="Contents/headerTags.jsp"/>
+            <jsp:include page="./Contents/headerTags.jsp"/>
 
             <div align="left">
                 <c:if test="${user != null}">
@@ -32,24 +32,24 @@
                                     </h2>
                                 </caption>
                                 <c:if test="${user != null}">
-                                    <input type="hidden" name="formId" value="<c:out value='${user.id}' />" />
+                                    <input type="hidden" name="formId" value="<c:out value='${book.id}' />" />
                                 </c:if>
                                 <tr>
                                     <th>Email: </th>
                                     <td>
-                                        <input type="text" name="formEmail" size="45" value="<c:out value='${user.email}' />"/>
+                                        <input type="text" name="formEmail" size="45" value="<c:out value='${book.email}' />"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Password: </th>
                                     <td>
-                                        <input type="text" name="formPassword" size="5" value="<c:out value='${user.fullname}' />"/>
+                                        <input type="text" name="formPassword" size="5" value="<c:out value='${book.fullname}' />"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>FullName: </th>
                                     <td>
-                                        <input type="text" name="formFullname" size="45" value="<c:out value='${user.password}' />"/>
+                                        <input type="text" name="formFullname" size="45" value="<c:out value='${book.password}' />"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -62,7 +62,7 @@
                     </form>
             </div>
 
-            <jsp:include page="Contents/rodape.jsp"/> 
+            <jsp:include page="./Contents/rodape.jsp"/> 
         </div>
     </body>
 </html>

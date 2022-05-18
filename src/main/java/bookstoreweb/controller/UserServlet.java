@@ -82,7 +82,7 @@ public class UserServlet extends HttpServlet {
         
         Logger.getLogger(UserDAO.class.getName()).log(Level.INFO, "Total de registros: {0}", listaUsers.size());
         
-        request.setAttribute("listaUser", listaUsers);
+        request.setAttribute("listaUsers", listaUsers);
     
         RequestDispatcher dispatcher = request.getRequestDispatcher("/UserList.jsp");
         dispatcher.forward(request, response);
