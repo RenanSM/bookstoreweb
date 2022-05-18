@@ -186,8 +186,8 @@ public class UserDAO {
         try {
 
             stmt = conn.prepareStatement(SELECT);
-            stmt.setString(1, email);
-            stmt.setString(2, password);
+            stmt.setString(0, email);
+            stmt.setString(1, password);
             rs = stmt.executeQuery();
 
             

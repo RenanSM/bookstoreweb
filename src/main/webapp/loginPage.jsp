@@ -24,6 +24,7 @@
             </form>
                 
         </div>
+              
               <!---------<p a="/bsuser/new" style="color: blue">Não se registrou ainda? Clique aqui.</p>-->
     </body>
 </html>
