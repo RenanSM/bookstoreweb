@@ -62,9 +62,7 @@ public class AutorizaUserFilter implements Filter{
         
         Logger.getLogger(AutorizaUserFilter.class.getName()).log(Level.INFO, "*** Pos-Filtro ***");
         
-        
-        
-            
+                    
     }
 
     @Override

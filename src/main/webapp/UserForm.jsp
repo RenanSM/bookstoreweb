@@ -22,7 +22,7 @@
                         <div class = "container mt-3">
                             <table class = "table table-striped">
                                 <caption>
-                                    <h2 style = text-decoration: none;>
+                                    <h2 style = text-decoration: none; >
                                         <c:if test="${user != null}">
                                             Editar Usuário
                                         </c:if>

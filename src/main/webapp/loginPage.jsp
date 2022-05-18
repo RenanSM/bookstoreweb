@@ -3,11 +3,12 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Bookstore Website</title>
+        <title>Login Page</title>
     </head>
     <body>
+        <jsp:include page="./Contents/cabecalhouserpage.jsp"/>
         <div style="text-align: center;">
-            <h1 style="color: red; font-family: sans-serif">Admin Login</h1>
+
             <form action="login" method="post" style="color: brown; font-family: sans-serif">
                 <label for="email">Email:</label>
                 <input name="email" size="30" />
@@ -25,6 +26,5 @@
                 
         </div>
               
-              <!---------<p a="/bsuser/new" style="color: blue">Não se registrou ainda? Clique aqui.</p>-->
     </body>
 </html>

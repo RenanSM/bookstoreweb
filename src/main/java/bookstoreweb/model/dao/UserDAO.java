@@ -186,15 +186,15 @@ public class UserDAO {
         try {
 
             stmt = conn.prepareStatement(SELECT);
-            stmt.setString(0, email);
-            stmt.setString(1, password);
+            stmt.setString(1, email);
+            stmt.setString(2, password);
             rs = stmt.executeQuery();
 
             
             if (rs.next()) {
                 b = new User();
-                b.setEmail(rs.getString("email"));
-                b.setPassword(rs.getString("password"));
+                b.setFullname(rs.getString("fullname"));
+                b.setEmail(email);
             }
         } catch (SQLException ex){
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
